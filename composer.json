@@ -1,13 +1,35 @@
 {
-    "name": "nizam/passport-api",
-    "description": "Automates Laravel Passport setup for API authentication in Laravel 11+, with ready-to-use routes and controllers. Similar to Laravel Breeze API.",
-    "type": "library",
-    "license": "MIT",
-    "autoload": {
-        "psr-4": {
-            "Nizam\\PassportApi\\": "src/"
-        }
-    },
-    "minimum-stability": "dev",
-    "require": {}
+  "name": "nizam/passport-api",
+  "description": "Automates Laravel Passport setup for API authentication in Laravel 11+, with ready-to-use routes and controllers. Similar to Laravel Breeze API.",
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Nizam Omer (nizaamomer)",
+      "email": "nizaamomer@gmail.com",
+      "homepage": "https://nizaam.netlify.app"
+    }
+  ],
+  "require": {
+    "php": "^7.3|^8.0",
+    "laravel/framework": "^9.0|^10.0|^11.0"
+  },
+  "suggest": {
+    "laravel/framework": "Required for Laravel 11 support (^11.0)",
+    "laravel/passport": "Required for Passport 12 support (^12.0)"
+  },
+  "autoload": {
+    "psr-4": {
+      "Nizam\\PassportApi\\": "src/"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Nizam\\PassportApi\\Providers\\NizamPassportApiServiceProvider"
+      ]
+    }
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true
 }
