@@ -1,155 +1,86 @@
 # Nizam Passport API
 
-A Laravel package that streamlines the setup of Laravel Passport for API authentication.
+**Nizam Passport API** is a Laravel package designed to streamline API authentication setup using Laravel Passport. Compatible with Laravel versions 8, 9, 10, and 11, this package simplifies Passport integration by automating the installation and configuration process, making it ideal for API-only projects.
 
 ## Features
 
--   Automatic installation of Laravel Passport
--   Scaffolding for API authentication controllers and routes
--   Configuration updates for Passport integration
--   User model updates for API token support
--   Cleaning up unnecessary files for API-only projects
-
-## Installation
-
-You can install the package via composer:
-
-```bash
-composer require nizam/passport-api
-```
-
-This command will:
-
-Check for Laravel Passport installation and install it if not present
-Install Passport API scaffolding
-Add authentication controllers and requests
-Update auth configuration
-Append authentication routes
-Add HasApiTokens trait to User model
-Update API routes
-Remove unnecessary scaffolding for API-only projects
-
-What This Package Does
-
-Passport Installation Check: Verifies if Laravel Passport is installed and offers to install it if not.
-Scaffolding Installation: Adds necessary controllers, requests, and routes for API authentication.
-Auth Configuration Update: Modifies the auth.php config file to include Passport driver for API authentication.
-Route Updates: Appends new authentication routes and updates API routes.
-User Model Update: Adds the HasApiTokens trait to the User model for API token support.
-Environment Configuration: Updates the .env file with default URL configurations.
-Cleanup: Removes unnecessary files and directories typically used in web applications but not needed for API-only projects.
-
-Contributing
-Contributions are welcome! If you find any issues or have suggestions for improvements, please open an issue or submit a pull request.
-How to Contribute
-
-Fork the repository
-Create your feature branch (git checkout -b feature/AmazingFeature)
-Commit your changes (git commit -m 'Add some AmazingFeature')
-Push to the branch (git push origin feature/AmazingFeature)
-Open a Pull Request
-
-Usage
-After installation, run the following command:
-php artisan nizam:install-passport-api
-
-# Nizam Passport API
-
-Laravel Passport API authentication package similar to Laravel Breeze API.
-
-## Installation
-
-You can install the package via composer:
-
-```bash
-composer require nizam/passport-api
-```
-
-Usage
-After installing the package, run the following command to set up the Passport API:
-
-```bash
-php artisan nizam:install-passport-api
-```
-
-This command will:
-
-Install Laravel Passport if not already installed
-Set up the necessary controllers and routes
-Update your auth configuration
-
-Requirements
-
-PHP ^7.3|^8.0
-Laravel ^9.0|^10.0|^11.0
-Laravel Passport ^10.0|^11.0|^12.0
-
-Credits
-
-Nizam Omer
-
-License
-The MIT License (MIT). Please see License File for more information.
-
-# Nizam Passport API
-
-This package provides a simple API authentication setup using Laravel Passport for Laravel 11 applications.
-
-## Features
-
-    // "laravel/framework": "^8.0|^9.0|^10.0|^11.0"
-
--   Easy installation with a custom Artisan command
--   API routes for authentication (login, register, logout)
--   Password reset functionality
--   Configurable route prefix
--   Form request validation
+-   **Automatic Laravel Passport Installation:** Ensures Passport is installed and configured.
+-   **API Authentication Scaffolding:** Provides necessary controllers, requests, and routes.
+-   **Configuration Updates:** Automatically updates `api.php`, `web.php`, and appends to `auth.php` to use Passport.
+-   **User Model Update:** Adds the `HasApiTokens` trait to the User model.
+-   **Environment Configuration:** Updates `.env` with default settings.
+-   **Auth Configuration Update:** Adds the API guard to the `auth.php` configuration file with the Passport driver if it’s not already present. This ensures your application uses Passport's TokenGuard for authenticating incoming API requests.
+-   **Cleanup:** Removes unnecessary files and directories for API-only applications.
 
 ## Requirements
 
--   PHP 8.2+
--   Laravel 11+
--   Laravel Passport 12+
+-   **PHP:** ^7.3|^8.0
+-   **Laravel:** ^8.0|^9.0|^10.0|^11.0
+-   **Laravel Passport:** ^10.0|^11.0|^12.0
 
 ## Installation
 
-1. Install Laravel Passport and set up the initial configuration:
+1. **Install the Nizam Passport API package:**
 
-php artisan install:api --passport
+    ```bash
+    composer require nizam/passport-api
+    ```
 
-This command will:
+2. **Set up the Passport API:**
 
--   Install Laravel Passport
--   Update your User model to use the `HasApiTokens` trait
--   Configure your `auth.php` to use Passport as the API driver
+    ```bash
+    php artisan nizam:install-passport-api
+    ```
 
-2. Install the package:
-   composer require nizam/passport-api
+    This command will:
 
-3. Publish the package configuration:
-   php artisan vendor:publish --provider="Nizam\PassportApi\Providers\NizamPassportApiServiceProvider"
+    - Check and install Laravel Passport if necessary
+    - Set up required controllers, requests, and routes
+    - Add the `HasApiTokens` trait to the User model
+    - Update your `auth.php` configuration to use Passport as the API driver
+    - Update your `web.php` and `api.php` configurations
+    - Modify `.env` with default URL settings
+    - Clean up unnecessary files and directories
+
+## Usage
+
+This package provides the following API routes:
+
+-   **POST /api/auth/register:** Register a new user
+-   **POST /api/auth/login:** Log in a user
+-   **POST /api/auth/logout:** Log out a user (requires authentication)
+-   **POST /api/auth/forgot-password:** Send a password reset link
+-   **POST /api/auth/reset-password:** Reset the user's password
+-   **GET /api/auth/verify-email/{id}/{hash}:** Verify email address (requires authentication)
+-   **POST /api/auth/email/verification-notification:** Resend email verification notification (requires authentication)
+
+-   **GET /api/auth/user:** Get authenticated user information (requires authentication)
 
 ## Configuration
 
-After publishing the configuration, you can modify the route prefix in the `config/nizam-passport-api.php` file:
+After installation, ensure your application's `config/auth.php` configuration file includes an API authentication guard with the Passport driver. This configuration instructs your application to use Passport's TokenGuard for authenticating incoming API requests.
 
-```php
-return [
- 'route_prefix' => 'api/auth',
-];
+## Reporting Issues
 
+If you encounter any issues or have suggestions for improvements, please follow these steps to report them:
 
-Usage
-This package provides the following API routes:
+1. **Check Existing Issues:** Before creating a new issue, check the [Issues](https://github.com/nizaamomer/passport-api/issues) tab to see if the issue has already been reported.
+2. **Create a New Issue:** If the issue has not been reported, click on the "New Issue" button and provide a detailed description of the problem. Include:
+    - A clear title
+    - A detailed description of the issue
+    - Steps to reproduce the issue
+    - Any error messages or logs
+    - The version of Laravel and Laravel Passport you are using
+3. **Submit the Issue:** Once you have provided all the necessary information, submit the issue. The maintainers will review and address it as soon as possible.
 
-POST /api/auth/register: Register a new user
-POST /api/auth/login: Log in a user
-POST /api/auth/logout: Log out a user (requires authentication)
-POST /api/auth/forgot-password: Send a password reset link
-POST /api/auth/reset-password: Reset the user's password
+## License
 
+This package is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
+## Credits
 
-# passport-api
-# passport
-```
+-   **Nizam Omer** - Package author and maintainer
+
+---
+
+Thank you for using Nizam Passport API! Special thanks to everyone who has contributed, tested, and provided feedback. Your support is greatly appreciated. May this package help you in your API development journey. 🙏

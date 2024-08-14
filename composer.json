@@ -1,6 +1,6 @@
 {
     "name": "nizam/passport-api",
-    "description": "Automates Laravel Passport setup for API authentication in Laravel 11+, with ready-to-use routes and controllers. Similar to Laravel Breeze API.",
+    "description": "Automates Laravel Passport setup for API authentication in Laravel 8 and higher, with ready-to-use routes and controllers. Similar to Laravel Breeze API.",
     "type": "library",
     "license": "MIT",
     "authors": [
