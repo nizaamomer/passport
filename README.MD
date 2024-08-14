@@ -4,13 +4,13 @@
 
 ## Features
 
--   **Automatic Laravel Passport Installation:** Ensures Passport is installed and configured.
--   **API Authentication Scaffolding:** Provides necessary controllers, requests, and routes.
--   **Configuration Updates:** Automatically updates `api.php`, `web.php`, and appends to `auth.php` to use Passport.
--   **User Model Update:** Adds the `HasApiTokens` trait to the User model.
--   **Environment Configuration:** Updates `.env` with default settings.
--   **Auth Configuration Update:** Adds the API guard to the `auth.php` configuration file with the Passport driver if it’s not already present. This ensures your application uses Passport's TokenGuard for authenticating incoming API requests.
--   **Cleanup:** Removes unnecessary files and directories for API-only applications.
+-   **Automatic Laravel Passport Installation:** Ensures Passport is installed and configured. 🚀
+-   **API Authentication Scaffolding:** Provides necessary controllers, requests, and routes. 🛠️
+-   **Configuration Updates:** Automatically updates `api.php`, `web.php`, and appends to `auth.php` to use Passport. 🔧
+-   **User Model Update:** Adds the `HasApiTokens` trait to the User model. 👤
+-   **Environment Configuration:** Updates `.env` with default settings. 🌐
+-   **Auth Configuration Update:** Adds the API guard to the `auth.php` configuration file with the Passport driver if it’s not already present. This ensures your application uses Passport's TokenGuard for authenticating incoming API requests. 🛡️
+-   **Cleanup:** Removes unnecessary files and directories for API-only applications. 🗑️
 
 ## Requirements
 
@@ -46,19 +46,23 @@
 
 This package provides the following API routes:
 
--   **POST /api/auth/register:** Register a new user
--   **POST /api/auth/login:** Log in a user
--   **POST /api/auth/logout:** Log out a user (requires authentication)
--   **POST /api/auth/forgot-password:** Send a password reset link
--   **POST /api/auth/reset-password:** Reset the user's password
--   **GET /api/auth/verify-email/{id}/{hash}:** Verify email address (requires authentication)
--   **POST /api/auth/email/verification-notification:** Resend email verification notification (requires authentication)
+-   **POST /api/auth/register:** Register a new user 📝
+-   **POST /api/auth/login:** Log in a user 🔑
+-   **POST /api/auth/logout:** Log out a user (requires authentication) 🚪
+-   **POST /api/auth/forgot-password:** Send a password reset link 📧
+-   **POST /api/auth/reset-password:** Reset the user's password 🔄
+-   **GET /api/auth/verify-email/{id}/{hash}:** Verify email address (requires authentication) ✔️
+-   **POST /api/auth/email/verification-notification:** Resend email verification notification (requires authentication) 🔄
 
--   **GET /api/auth/user:** Get authenticated user information (requires authentication)
+-   **GET /api/auth/user:** Get authenticated user information (requires authentication) 🧑‍💻
 
 ## Configuration
 
 After installation, ensure your application's `config/auth.php` configuration file includes an API authentication guard with the Passport driver. This configuration instructs your application to use Passport's TokenGuard for authenticating incoming API requests.
+
+## Examples
+
+To see how the integration and setup have evolved, you can view the differences between versions in the repository commits. For specific examples of changes, check out the [commit history](https://github.com/nizaamomer/nizam-passport.example/commits/main/).
 
 ## Reporting Issues
 
@@ -81,6 +85,6 @@ This package is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 -   **Nizam Omer** - Package author and maintainer
 
----
+## Acknowledgements
 
-Thank you for using Nizam Passport API! Special thanks to everyone who has contributed, tested, and provided feedback. Your support is greatly appreciated. May this package help you in your API development journey. 🙏
+Thank you for using Nizam Passport API! Special thanks to My God, everyone who has contributed, tested, and provided feedback. Your support is greatly appreciated. May this package help you in your API development journey. 🙏
